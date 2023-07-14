@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block Title%}{% endblock Title%}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand Nav-icon" href="/"><i class="fa fa-book me-3"></i>EMS </a>
+                <div class="link-nav-con">
+                    <button class="navbar-toggler dots link-nav" type="button" data-bs-toggle="offcanvas"
+                        style="padding: 0;" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                        aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle link-nav" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img class="profile-pic" src="{{ url_for('static', filename='img/azure.png') }}"
+                                alt="profile">
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/logout" class="nav-link">logout</a></li>
+                        </ul>
+                    </li>
+                </div>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <a class="navbar-brand" href="/"><i class="fa fa-book me-3"></i>EMS</a>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex mt-3" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="sideNav">
+        <div class="nav-logo">
+            <div class="resume-area">
+                <button class="btn-resume">
+                    Edit Resume
+                </button>
+            </div>
+            <div class="side-nav-link-con">
+                <a href="/user" class="side-nav-link" id="Profile"><i class="fa-regular fa-user mx-2"></i>Profile</a>
+                <a href="/user/progress" class="side-nav-link" id="progress"><i
+                        class="fa-solid fa-bars-progress mx-2"></i>Progress</a>
+                <a href="#" class="side-nav-link"><i class="fa-regular fa-thumbs-up mx-2" id="job"></i>Jobs<span
+                        class="badge badge-success mx-2">New</span></a>
+                <a href="/user/learning" class="side-nav-link" id="learning"><i
+                        class="fa-solid fa-chalkboard mx-2"></i>Learning</a>
+                <a href="/user/recent" class="side-nav-link" id="recent"><i
+                        class="fa-solid fa-recycle mx-2"></i>Recent</a>
+                <a href="#" class="side-nav-link" id="helproom"><i class="fa-brands fa-rocketchat mx-2"></i>Help
+                    Room<span class="badge badge-success mx-2">New</span></a>
+            </div>
+            <hr>
+            <div class="side-nav-social-con">
+                <a href="" class="side-nav-social-link"><i class="fa-brands fa-whatsapp mx-3"
+                        style="color: green; font-weight: bolder;"></i>Join Now</a>
+                <a href="" class="side-nav-social-link"><i class="fa-solid fa-envelope mx-3"></i>Mail Us</a>
+                <a href="" class="side-nav-social-link"><i class="fa-brands fa-linkedin mx-3"></i>Connect Us</a>
+            </div>
+            <hr>
+            <div class="side-nav-social-con">
+                <a href="" class="side-nav-social-link-youtube"><i class="fa-brands fa-youtube mx-3"
+                        style="color: red; font-weight: bolder; font-size: larger;"></i>Subscribe Us</a>
+            </div>
+        </div>
+    </div>
+    {% block body %}
+    {% endblock body%}
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script src="{{ url_for('static', filename='js/progres_srcpit.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>
